@@ -12,7 +12,7 @@ bin/ds_fmc_appd
 bin/efsks
 bin/hci_qcomm_init
 bin/ks
-bin/mm-qcamera-daemon
+#bin/mm-qcamera-daemon
 bin/mpdecision
 bin/netmgrd
 bin/nv_tee
@@ -61,30 +61,30 @@ lib/libloc_api_v02.so
 
 # Camera 
 lib/libgemini.so
-lib/libmmcamera_faceproc.so
-lib/libmmcamera_frameproc.so
-lib/libmmcamera_hdr_lib.so
-lib/libmmcamera_image_stab.so
-lib/libmmcamera_statsproc31.so
-lib/libmmcamera_wavelet_lib.so
+#lib/libmmcamera_faceproc.so
+#lib/libmmcamera_frameproc.so
+#lib/libmmcamera_hdr_lib.so
+#lib/libmmcamera_image_stab.so
+#lib/libmmcamera_statsproc31.so
+#lib/libmmcamera_wavelet_lib.so
 lib/libmmipl.so
 lib/libmmjpeg.so
 lib/libmmjps.so
 lib/libmmmpo.so
 lib/libmmmpod.so
 lib/libmmstillomx.so
-lib/liboemcamera.so
+#lib/liboemcamera.so
 
-lib/libchromatix_imx135_default_video.so
-lib/libchromatix_imx135_hfr_90fps.so
-lib/libchromatix_imx135_video_hd.so
-lib/libchromatix_imx135_hfr_120fps.so
-lib/libchromatix_imx135_preview.so
-lib/libchromatix_imx135_zsl.so
-lib/libchromatix_s5k6a3yx_default_video.so
-lib/libchromatix_s5k6a3yx_preview.so
-lib/libchromatix_s5k6a3yx_video_hd.so
-lib/libchromatix_s5k6a3yx_zsl.so
+#lib/libchromatix_imx135_default_video.so
+#lib/libchromatix_imx135_hfr_90fps.so
+#lib/libchromatix_imx135_video_hd.so
+#lib/libchromatix_imx135_hfr_120fps.so
+#lib/libchromatix_imx135_preview.so
+#lib/libchromatix_imx135_zsl.so
+#lib/libchromatix_s5k6a3yx_default_video.so
+#lib/libchromatix_s5k6a3yx_preview.so
+#lib/libchromatix_s5k6a3yx_video_hd.so
+#lib/libchromatix_s5k6a3yx_zsl.so
 
 
 # Media libraries
@@ -92,8 +92,6 @@ lib/libI420colorconvert.so
 lib/libmm-color-convertor.so
 lib/libOmxAacDec.so
 lib/libOmxWmaDec.so
-#lib/libqdutils.so
-#lib/libqdMetaData.so
 
 lib/libdrmdiag.so
 lib/libdrmfs.so
