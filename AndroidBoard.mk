@@ -1,4 +1,5 @@
-# Copyright (C) 2009 The Android Open Source Project
+#
+# Copyright (C) 2011 The Android Open-Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -11,11 +12,6 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
-#
-# AndroidBoard.mk is a legacy mechanism to deal with a few
-# edge-cases that can't be managed otherwise. No new rules
-# should be added to this file.
 #
 
 LOCAL_PATH := $(call my-dir)
@@ -24,5 +20,3 @@ LOCAL_PATH := $(call my-dir)
 # overridden further down
 include $(CLEAR_VARS)
 
-# include the non-open-source counterpart to this file
--include vendor/oppo/find5/AndroidBoardVendor.mk
