@@ -14,9 +14,6 @@
 # limitations under the License.
 #
 
-LOCAL_PATH := $(call my-dir)
-
-# Least specific includes go first, so that they can get
-# overridden further down
-include $(CLEAR_VARS)
-
+ifeq ($(TARGET_PREBUILT_KERNEL),)
+TARGET_PREBUILT_KERNEL := device/oppo/find5/prebuilt/kernel
+endif
