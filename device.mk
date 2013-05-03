@@ -69,6 +69,17 @@ PRODUCT_COPY_FILES += \
     device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/configs/init.qcom.wifi.sh:system/etc/init.qcom.wifi.sh \
     device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/configs/usf_post_boot.sh:system/etc/usf_post_boot.sh
 
+# Prebuilt kl and kcm keymaps
+PRODUCT_COPY_FILES += \
+	device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/apq8064-tabla-snd-card_Button_Jack.kl:system/usr/keylayout/apq8064-tabla-snd-card_Button_Jack.kl \
+	device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/hs_detect.kl:system/usr/keylayout/hs_detect.kl \
+	device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/pmic8xxx_pwrkey.kl:system/usr/keylayout/pmic8xxx_pwrkey.kl \
+	device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/keypad_8064.kl:system/usr/keylayout/keypad_8064.kl \
+	device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/apq8064-tabla-snd-card_Button_Jack.kcm:system/usr/keychars/apq8064-tabla-snd-card_Button_Jack.kcm \
+	device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/hs_detect.kcm:system/usr/keychars/hs_detect.kcm \
+	device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/keypad_8064.kcm:system/usr/keychars/keypad_8064.kcm \
+	device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/pmic8xxx_pwrkey.kcm:system/usr/keychars/pmic8xxx_pwrkey.kcm
+
 # NFCEE access control
 ifeq ($(TARGET_BUILD_VARIANT),user)
     NFCEE_ACCESS_PATH := device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/configs/nfcee_access.xml
@@ -115,11 +126,11 @@ PRODUCT_PACKAGES += \
 
 # Graphics
 PRODUCT_PACKAGES += \
-    libgenlock \
-    liboverlay \
-    copybit.msm8960 \
-    gralloc.msm8960 \
-    hwcomposer.msm8960
+	libgenlock \
+	liboverlay \
+	hwcomposer.msm8960 \
+	gralloc.msm8960 \
+	copybit.msm8960
 
 # GPS
 PRODUCT_PACKAGES += \
@@ -127,7 +138,7 @@ PRODUCT_PACKAGES += \
 	libloc_eng \
 	libloc_api_v02 \
 	libgps.utils \
-	gps.msm8960
+	gps.default
 
 # GPS configuration
 PRODUCT_COPY_FILES += \
@@ -189,11 +200,8 @@ PRODUCT_PACKAGES += \
 
 # USB
 PRODUCT_PACKAGES += \
+	librs_jni \
 	com.android.future.usb.accessory
-
-# Torch
-#PRODUCT_PACKAGES += \
-    Torch
 
 ## Config Files ##
 
@@ -241,7 +249,7 @@ PRODUCT_COPY_FILES += \
 	device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/configs/thermald-8930.conf:/system/etc/thermald-8930.conf
 
 # Qualcomm
-#PRODUCT_COPY_FILES += \
+PRODUCT_COPY_FILES += \
 	device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/configs/capability.xml:/system/etc/capability.xml \
 	device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/configs/qosmgr_rules.xml:/system/etc/qosmgr_rules.xml \
 	device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/configs/OperatorPolicy.xml:/system/etc/OperatorPolicy.xml \
@@ -355,3 +363,5 @@ $(call inherit-product-if-exists, frameworks/native/build/phone-xhdpi-2048-dalvi
 
 # This is the find5-specific audio package (will add oppo package after I get some feedback)
 #$(call inherit-product, device/oppo/oem/AudioPackageOppo.mk)
+$(call inherit-product, frameworks/base/data/sounds/AudioPackage10.mk)
+
