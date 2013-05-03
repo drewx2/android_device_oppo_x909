@@ -16,6 +16,8 @@
 
 LOCAL_PATH := $(call my-dir)
 
+include $(CLEAR_VARS)
+
 ifeq ($(TARGET_DEVICE),find5)
     include $(call first-makefiles-under,$(LOCAL_PATH))
 endif
