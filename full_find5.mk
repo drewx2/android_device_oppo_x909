@@ -17,9 +17,6 @@
 # Sample: This is where we'd set a backup provider if we had one
 # $(call inherit-product, device/sample/products/backup_overlay.mk)
 
-# Inherit common phone packages
-$(call inherit-product, vendor/drewx2/common_phone.mk)
-
 # Release name
 PRODUCT_RELEASE_NAME := find5
 
@@ -35,6 +32,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
 # Inherit from hardware-specific part of the product configuration
 $(call inherit-product, device/oppo/find5/device.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
 PRODUCT_NAME := full_find5
 PRODUCT_DEVICE := find5
@@ -46,7 +44,10 @@ PRODUCT_MANUFACTURER := Oppo
 # Set build fingerprint / ID / Product Name etc.
 PRODUCT_BUILD_PROP_OVERRIDES += PRODUCT_NAME=FIND5 BUILD_FINGERPRINT="OPPO/OPPO/FIND5:4.1.1/JRO03L/1357823013:user/release-keys" PRIVATE_BUILD_DESC="msm8960-user 4.1.1 JRO03L eng.oppo.20130307.170744 release-keys"
 
+-include vendor/drewx2/common_phone.mk)
+
 $(call inherit-product-if-exists, vendor/oppo/find5/find5-vendor.mk)
+
 
 
 
