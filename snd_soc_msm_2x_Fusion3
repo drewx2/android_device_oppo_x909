@@ -1519,7 +1519,7 @@ SectionDevice
 		'SLIM TX3 MUX':0:ZERO
 	EndSequence
 
-	ACDBID	14:1
+	ACDBID	15:1
 	EffectsMixerCTL "SRS TruMedia"
 
 EndSection
@@ -2288,6 +2288,30 @@ SectionDevice
 	EndSequence
 
 	ACDBID	4:2
+	EffectsMixerCTL "SRS TruMedia"
+
+EndSection
+
+SectionDevice
+	Name "Voice Line"
+	Comment "Speaker Tx device for voice call"
+
+	EnableSequence
+		'SLIM_0_TX Channels':0:One
+		'SLIM TX7 MUX':0:DEC4
+		'DEC4 MUX':0:ADC3
+		'DEC4 Volume':1:70
+		'ADC3 Volume':1:100
+	EndSequence
+
+	DisableSequence
+		'SLIM TX7 MUX':0:ZERO
+		'DEC4 MUX':0:ZERO
+		'DEC4 Volume':1:68
+		'ADC3 Volume':1:100
+	EndSequence
+
+	ACDBID	11:2
 	EffectsMixerCTL "SRS TruMedia"
 
 EndSection
