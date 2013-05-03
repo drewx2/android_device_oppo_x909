@@ -1,4 +1,5 @@
-# Copyright (C) 2009 The Android Open Source Project
+#
+# Copyright (C) 2011 The Android Open-Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -11,18 +12,7 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 #
-# This file sets variables that control the way modules are built
-# thorughout the system. It should not be used to conditionally
-# disable makefiles (the proper mechanism to control what gets
-# included in a build is to use PRODUCT_PACKAGES in a product
-# definition file).
-#
-
-# WARNING: This line must come *before* including the proprietary
-# variant, so that it gets overwritten by the parent (which goes
-# against the traditional rules of inheritance).
 
 BOARD_VENDOR := oppo
 TARGET_DEVICE := find5
@@ -38,10 +28,10 @@ USE_CAMERA_STUB := true
 
 # Board / Kernel Setup
 TARGET_ARCH := arm
-TARGET_GLOBAL_CFLAGS += -mfpu=neon -mfloat-abi=softfp -DQCOM_COMPRESSED_AUDIO_ENABLED -DQCOM_FM_ENABLED -DQCOM_OUTPUT_FLAGS_ENABLED
+TARGET_GLOBAL_CFLAGS += -mfpu=neon -mfloat-abi=softfp
 TARGET_GLOBAL_CPPFLAGS += -mfpu=neon -mfloat-abi=softfp
 TARGET_ARCH_VARIANT := armv7-a-neon
-TARGET_CPU_ABI  := armeabi-v7a
+TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
 TARGET_CPU_SMP := true
 TARGET_CPU_VARIANT := krait
@@ -64,8 +54,8 @@ TARGET_KRAIT_BIONIC_PLDSIZE := 64
 BOARD_USES_ALSA_AUDIO := true
 BOARD_USES_FLUENCE_INCALL := true
 BOARD_USES_SEPERATED_AUDIO_INPUT := true
+#BOARD_HAVE_LOW_LATENCY_AUDIO := true
 #BOARD_USES_LIBMEDIA_WITH_AUDIOPARAMETER	:= true
-#TARGET_QCOM_AUDIO_VARIANT := caf
 
 # Bootloader
 BOARD_WANTS_EMMC_BOOT := true
@@ -75,9 +65,9 @@ TARGET_BOOTLOADER_BOARD_NAME := find5
 TARGET_BOOTLOADER_NAME=find5
 
 # Bluetooth
-BOARD_HAVE_BLUETOOTH := false
-#BOARD_HAVE_BLUETOOTH_QCOM := true
-#BLUETOOTH_HCI_USE_MCT := true
+BOARD_HAVE_BLUETOOTH := true
+BOARD_HAVE_BLUETOOTH_QCOM := true
+BLUETOOTH_HCI_USE_MCT := true
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/$(BOARD_VENDOR)/$(TARGET_DEVICE)/bluetooth/
 
 # Camera
@@ -164,6 +154,6 @@ BOARD_VOLD_MAX_PARTITIONS := 36
 
 # Additional build config
 
-BOARD_USES_SECURE_SERVICES := true
+#BOARD_USES_SECURE_SERVICES := true
 
 BOARD_CHARGER_ENABLE_SUSPEND := true
