@@ -32,11 +32,10 @@ bin/v4l2-qcamera-app
 
 # Audio
 lib/libacdbloader.so
-#lib/libalsautils.so
+lib/libalsautils.so
 lib/libaudcal.so
-#lib/libaudioalsa.so
+lib/libaudioalsa.so
 #lib/libaudioparsers.so
-#lib/libaudioparameter.so
 
 # Graphics
 lib/libc2d2_a3xx.so
@@ -53,6 +52,7 @@ lib/egl/libplayback_adreno200.so
 lib/egl/libq3dtools_adreno200.so
 lib/libgsl.so
 lib/libllvm-a3xx.so
+lib/libllvm-arm.so
 lib/libOpenCL.so
 lib/libOpenVG.so
 
@@ -63,7 +63,7 @@ lib/libloc_api_v02.so
 lib/libgemini.so
 lib/libmmcamera_faceproc.so
 lib/libmmcamera_frameproc.so
-#lib/libmmcamera_hdr_lib.so
+lib/libmmcamera_hdr_lib.so
 lib/libmmcamera_image_stab.so
 lib/libmmcamera_statsproc31.so
 lib/libmmcamera_wavelet_lib.so
@@ -168,6 +168,7 @@ etc/firmware/vidc.mdt
 
 lib/hw/lights.msm8960.so
 lib/hw/raw_part.default.so
+lib/hw/camera.msm8960.so
 
 vendor/lib/libwvm.so
 vendor/lib/libwvdrm_L3.so

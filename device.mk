@@ -103,12 +103,16 @@ PRODUCT_COPY_FILES += \
 # Audio
 PRODUCT_PACKAGES += \
 	alsa.msm8960 \
-	audio_policy.msm8960 \
+	audio.primary.default \
 	audio.primary.msm8960 \
 	audio.a2dp.default \
-	audio.usb.default \
-	audio.r_submix.default \
-	libaudio-resampler
+    audio_policy.default \
+	audio_policy.msm8960 \
+    audio.r_submix.default \
+    libalsa-intf \
+    libaudioutils \
+	libaudio-resampler \
+	libaudioparameter
 
 # Bluetooth
 PRODUCT_PACKAGES += \
@@ -175,12 +179,18 @@ PRODUCT_PACKAGES += \
 # OMX
 PRODUCT_PACKAGES += \
 	libmm-omxcore \
-	libdivxdrmdecrypt \
-	libOmxVdec \
-	libOmxVenc \
-	libOmxCore \
-	libstagefrighthw \
-	libc2dcolorconvert
+    libc2dcolorconvert \
+    libdivxdrmdecrypt \
+    libOmxCore \
+    libOmxVdec \
+    libOmxVenc \
+    libOmxAacEnc \
+    libOmxAmrEnc \
+    libOmxEvrcEnc \
+    libOmxQcelp13Enc \
+	libOmxMp3Dec \
+	libOmxAc3HwDec \
+    libstagefrighthw
 
 # Power
 PRODUCT_PACKAGES += \
@@ -314,6 +324,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     keyguard.no_require_sim=true
     
 PRODUCT_PROPERTY_OVERRIDES += \
+	af.resampler.quality=4
     com.qc.hardware=true \
     debug.composition.type=gpu \
     debug.egl.hw=1 \
@@ -325,8 +336,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	mpq.audio.decode=true \
     persist.audio.fluence.mode=endfire \
     persist.audio.vr.enable=false \
-    persist.audio.handset.mic=digital \
+    persist.audio.handset.mic=dmic \
     persist.audio.speaker.location=high \
+	persist.audio.lowlatency.rec=false \
     persist.thermal.monitor=true \
     ro.baseband.arch=msm \
 	ro.com.google.clientidbase=android-$(BOARD_VENDOR) \
@@ -356,7 +368,8 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 	ro.adb.secure=0 \
 	ro.secure=0 \
 	ro.debuggable=1 \
-	persist.sys.usb.config=mtp
+	persist.sys.usb.config=mtp \
+	sys.usb.config=adb
 
 # call dalvik heap config
 $(call inherit-product-if-exists, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
@@ -364,4 +377,3 @@ $(call inherit-product-if-exists, frameworks/native/build/phone-xhdpi-2048-dalvi
 # This is the find5-specific audio package (will add oppo package after I get some feedback)
 #$(call inherit-product, device/oppo/oem/AudioPackageOppo.mk)
 $(call inherit-product, frameworks/base/data/sounds/AudioPackage10.mk)
-
