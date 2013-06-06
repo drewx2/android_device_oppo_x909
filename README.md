@@ -1,4 +1,4 @@
-CyanogenMod 10.1 for Oppo Find5
+AOSP 4.2.x for Oppo Find5
 ================================================================
 
 Working:
